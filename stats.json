@@ -1,0 +1,37 @@
+{
+
+  "title": "Tele Papa Bravo",
+  "tiles": [
+    {
+      "id": "google-01",
+      "src": "https://google.com",
+      "style": "display:inline-flex; width:33%; height:49%"
+    },
+    {
+      "id": "google-02",
+      "src": "https://google.com",
+      "style": "display:inline-flex; width:33%; height:49%"
+    },
+    {
+      "id": "google-03",
+      "src": "https://google.com",
+      "style": "display:inline-flex; width:33%; height:49%"
+    },
+    {
+      "id": "github-01",
+      "src": "https://github.com",
+      "style": "display:inline-flex; width:33%; height:49%"
+    },
+    {
+      "id": "github-02",
+      "src": "https://github.com",
+      "style": "display:inline-flex; width:33%; height:49%"
+    },
+    {
+      "id": "github-03",
+      "src": "https://github.com",
+      "style": "display:inline-flex; width:33%; height:49%"
+    }
+  ]
+
+}

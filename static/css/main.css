@@ -1,0 +1,20 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.no-margins-or-paddings {
+  margin: 0;
+  padding: 0;
+}
