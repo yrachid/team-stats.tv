@@ -1,6 +1,6 @@
 {
 
-  "title": "Tele Papa Bravo",
+  "title": "Ahaaa",
   "tiles": [
     {
       "id": "google-01",
@@ -20,17 +20,12 @@
     {
       "id": "github-01",
       "src": "https://github.com",
-      "style": "display:inline-flex; width:33%; height:49%"
+      "style": "display:inline-flex; width:49.7%; height:49.7%"
     },
     {
       "id": "github-02",
       "src": "https://github.com",
-      "style": "display:inline-flex; width:33%; height:49%"
-    },
-    {
-      "id": "github-03",
-      "src": "https://github.com",
-      "style": "display:inline-flex; width:33%; height:49%"
+      "style": "display:inline-flex; width:49.7%; height:49.7%"
     }
   ]
 
