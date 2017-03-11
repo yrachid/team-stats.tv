@@ -5,15 +5,16 @@ const data = JSON.parse(config);
 
 const body = document.getElementsByTagName('body')[0];
 
-const tiles = document.getElementById('app');
+const tiles = document.getElementById('tiles');
 
 const tilesViews = data.tiles.map(tile => {
   const view = document.createElement('webview');
-  view.setAttribute("id", tile.id);
-  view.setAttribute("src", tile.src);
-  view.setAttribute("style", tile.style);
-  view.setAttribute("minwidth", "600");
-  view.setAttribute("minheight", "800");
+
+ Object.keys(tile).forEach(k => {
+   console.log(`${k} => ${tile[k]}`);
+   view.setAttribute(k, tile[k]);
+ });
+
   view.setAttribute("autosize", "on");
   view.setAttribute("useragent", "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36");
   view.addEventListener('did-start-loading', (id => () => console.log(`${id} :: Loading`))(tile.id) );
