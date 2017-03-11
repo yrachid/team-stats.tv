@@ -6,12 +6,23 @@ html, body {
 }
 
 body {
-  background-color: blue;
+  background-color: black;
 }
 
-#tiles-container {
-  display: flex;
-  flex-direction: row;
+.one-third {
+  display: inline-flex;
+  width: 33.28%;
+  height: 50%;
+  margin-right: 0.05%;
+}
+
+.half {
+  display: inline-flex;
+  width: 49.9%;
+  height: 49.5%;
+}
+
+#tiles {
   width:100%;
   height:100%;
 }

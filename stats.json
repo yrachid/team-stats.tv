@@ -3,29 +3,29 @@
   "title": "Ahaaa",
   "tiles": [
     {
-      "id": "google-01",
+      "id": "g01",
       "src": "https://google.com",
-      "style": "display:inline-flex; width:33%; height:49%"
+      "class": "one-third"
     },
     {
-      "id": "google-02",
+      "id": "g02",
       "src": "https://google.com",
-      "style": "display:inline-flex; width:33%; height:49%"
+      "class": "one-third"
     },
     {
-      "id": "google-03",
+      "id": "g03",
       "src": "https://google.com",
-      "style": "display:inline-flex; width:33%; height:49%"
+      "class": "one-third"
     },
     {
-      "id": "github-01",
+      "id": "g04",
       "src": "https://github.com",
-      "style": "display:inline-flex; width:49.7%; height:49.7%"
+      "class": "half"
     },
     {
-      "id": "github-02",
+      "id": "g05",
       "src": "https://github.com",
-      "style": "display:inline-flex; width:49.7%; height:49.7%"
+      "class": "half"
     }
   ]
 
