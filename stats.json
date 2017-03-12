@@ -1,30 +1,43 @@
 {
 
   "title": "Ahaaa",
+
   "tiles": [
     {
       "id": "g01",
-      "src": "https://google.com",
-      "class": "one-third"
+      "src": "https://ci.it.lan.com/job/lsp-Folder/job/latamapirevenueshopping-Folder/job/master-Folder/view/latamapirevenueshopping-master-DockerDevWorkflow/",
+      "class": "one-third",
+      "minwidth": "33.28%",
+      "minheight": "50%",
+      "maxwidth": "33.28%",
+      "maxheight": "50%"
     },
     {
       "id": "g02",
-      "src": "https://google.com",
-      "class": "one-third"
+      "src": "https://ci.it.lan.com/job/lsp-Folder/job/latamapirevenueshopping-Folder/job/master-Folder/view/latamapirevenueshopping-master-DockerReleaseWorkflow/",
+      "class": "one-third",
+      "minwidth": "670.91",
+      "minheight": "450",
+      "maxwidth": "670.91",
+      "maxheight": "450"
     },
     {
       "id": "g03",
-      "src": "https://google.com",
-      "class": "one-third"
+      "src": "https://ci.it.lan.com/job/lsp-Folder/job/latamapirevenueshopping-Folder/job/master-Folder/view/latamapirevenueshopping-master-ScheduledWorkflow/",
+      "class": "one-third",
+      "minwidth": "670.91",
+      "minheight": "450",
+      "maxwidth": "670.91",
+      "maxheight": "450"
     },
     {
       "id": "g04",
-      "src": "https://github.com",
+      "src": "https://logs.it.lan.com/en-US/app/api_revenue_shopping/rvs__get_recommendations?form.time_tok.earliest=-60m%40m&form.time_tok.latest=now&form.environment_tok=_default&form.timechart=timechart%20span%3D1m",
       "class": "half"
     },
     {
       "id": "g05",
-      "src": "https://github.com",
+      "src": "https://logs.it.lan.com/en-US/app/api_revenue_shopping/rvs__get_recommendations?form.time_tok.earliest=-60m%40m&form.time_tok.latest=now&form.environment_tok=_default&form.timechart=timechart%20span%3D1m",
       "class": "half"
     }
   ]
