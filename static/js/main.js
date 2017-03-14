@@ -23,7 +23,6 @@ const tilesViews = data.tiles.map(tile => {
   view.addEventListener('did-stop-loading', (id => () => {
     console.log(`${id} :: Loaded`);
     if ( id === 'g04' || id === 'g05') {
-      console.log('scroll');
       t(id).executeJavaScript("document.querySelector('body').scrollTop = 358");
     }
   })(tile.id));
