@@ -1,33 +1,33 @@
 const fs = require('fs');
-const config = fs.readFileSync(__dirname + '/stats.json').toString();
+const $ = dom(document);
+const { assign } = Object;
 
-const data = JSON.parse(config);
+const data = JSON.parse(fs.readFileSync(__dirname + '/stats.json').toString());
 
-const body = document.getElementsByTagName('body')[0];
+$.title(data.title);
 
-const tiles = document.getElementById('tiles');
+const tiles = $.byId('tiles');
 
-const t = id => tilesViews.filter( tv => tv.getAttribute('id') === id)[0];
-const rl = id => t(id).reload();
+const resizingAndPosition = { class: 'tile' };
 
-const tilesViews = data.tiles.map(tile => {
-  const view = document.createElement('webview');
+const attribsAndSize = t => ({ attribs: t.attribs, size: sizes(t.size)(tiles) });
+const additionalAttribs = t => ({ attribs: assign(t.attribs, resizingAndPosition), size: t.size });
+const domElementAndSize = t => ({ domElement: $.create('webview', t.attribs), size: t.size });
+const domElementAssignments = t => {
+  console.log(t.size);
+  t.domElement.style.width = `${t.size.width}px`;
+  t.domElement.style.height = `${t.size.height}px`;
+  return t;
+};
+const appendToDom = t => $.append(tiles)(t.domElement);
 
-  Object.keys(tile).forEach(k => {
-    view.setAttribute(k, tile[k]);
-  });
+const renderStuff = () =>
+  data
+    .tiles
+    .map(attribsAndSize)
+    .map(additionalAttribs)
+    .map(domElementAndSize)
+    .map(domElementAssignments)
+    .forEach(appendToDom);
 
-  view.setAttribute("autosize", "on");
-  view.setAttribute("useragent", "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36");
-  view.addEventListener('did-start-loading', (id => () => console.log(`${id} :: Loading`))(tile.id) );
-  view.addEventListener('did-stop-loading', (id => () => {
-    console.log(`${id} :: Loaded`);
-    if ( id === 'g04' || id === 'g05') {
-      t(id).executeJavaScript("document.querySelector('body').scrollTop = 358");
-    }
-  })(tile.id));
-
-  return view;
-});
-
-tilesViews.forEach(tv => tiles.appendChild(tv));
+renderStuff();
