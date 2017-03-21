@@ -10,8 +10,8 @@ const dimension =
     });
   }
 const options = {
-  'half': dimension(w => w / 2.0182, h => h / 2.03),
-  'one-third': dimension(w => w / 3.03, h => h / 2)
+  'half': dimension(w => w / 2.022, h => h / 2.03),
+  'one-third': dimension(w => w / 3.06 , h => h / 2)
 };
 
 const sizes =  name => options[name];
