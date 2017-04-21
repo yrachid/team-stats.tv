@@ -4,7 +4,12 @@ const path = require('path');
 let window;
 
 const createWindow = () => {
-  window = new BrowserWindow({ fullscreen: true });
+  window = new BrowserWindow({
+    fullscreen: true,
+    webPreferences: {
+      experimentalFeatures: true,
+    }
+  });
   window.on('closed', () => window = null);
 
   window.loadURL(`file://${__dirname}/index.html`);
