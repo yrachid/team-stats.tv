@@ -5,7 +5,7 @@ const presets = {
   tile: {
     presets: {
       scrollTop: 0,
-      zoomFactor: 0
+      zoomFactor: 1
     }
   }
 };
