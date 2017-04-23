@@ -1,12 +1,19 @@
 const fs = require('fs');
 
-module.exports = configFilePath => {
-  try {
-    const configFile = fs.readFileSync(configFilePath).toString();
-    const config = JSON.parse(configFile);
+module.exports = configFilePath => new Promise((resolve, reject) => {
 
-    return config;
-  } catch (e) {
-    throw new Error(`Configuration Error: ${e.message}`);
-  }
-};
+  fs.readFile(configFilePath, (error, configContent) => {
+
+    if (error) {
+      return reject(new Error(`Could not read config file: ${error.message}`));
+    }
+
+    try {
+      return resolve(JSON.parse(configContent.toString()));
+    } catch (parsingError) {
+      return reject(new Error(`Could not parse configuration: ${parsingError.message}`));
+    }
+
+  });
+
+});

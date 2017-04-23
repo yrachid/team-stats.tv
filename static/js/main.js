@@ -1,24 +1,14 @@
 const config = require(__dirname + '/static/js/config/index.js');
+const optimize = require(__dirname + '/static/js/optimize.js');
 
-config.from(__dirname + '/stats.json', (error, data) => {
+const tiles = document.getElementById('tiles');
 
-  console.log(data);
+config.from(__dirname + '/stats.json')
+  .then(data => {
+    console.log(data);
 
-  const tiles = document.getElementById('tiles');
+    document.title = data.title;
 
-  if (error) {
-    console.log(error);
-    const errorWarning = document.createElement('h1');
-    errorWarning.style.color = 'red';
-    errorWarning.innerHTML = error.message;
-    return document.body.insertBefore(errorWarning, tiles);
-  }
-
-  document.title = data.title;
-
-  const appendToDom = t => tiles.appendChild(t);
-
-  const renderStuff = () =>
     data
       .tiles
       .forEach(tileData => {
@@ -94,9 +84,8 @@ config.from(__dirname + '/stats.json', (error, data) => {
           tileControls.appendChild(tileScrollTop);
         }
 
-        appendToDom(tileControls);
-        appendToDom(tile);
-
+        tiles.appendChild(tileControls);
+        tiles.appendChild(tile);
 
         tile.addEventListener('dom-ready', () => {
           if (defaultZoomFactor !== 1) {
@@ -119,6 +108,13 @@ config.from(__dirname + '/stats.json', (error, data) => {
         }
       });
 
-  renderStuff();
+      optimize();
 
-});
+  })
+  .catch(error => {
+    console.log(error);
+    const errorWarning = document.createElement('h1');
+    errorWarning.style.color = 'red';
+    errorWarning.innerHTML = error.message;
+    document.body.insertBefore(errorWarning, tiles);
+  });

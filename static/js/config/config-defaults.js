@@ -1,6 +1,6 @@
 const lodash = require('lodash');
 
-const presetConfig = {
+const presets = {
   title: 'Tele Stats',
   tile: {
     presets: {
@@ -10,16 +10,9 @@ const presetConfig = {
   }
 };
 
-module.exports = configuration => {
-
-  const title = configuration.title || presetConfig.title;
-
-  const tiles = configuration.tiles.map(tile => {
-    tile.presets = lodash.merge(presetConfig.tile, tile.presets);
-
-    return tile;
-  });
-
-  return {title, tiles};
-
-};
+module.exports = config => new Promise( (resolve, reject) => {
+  return resolve({
+    title: config.title || presets.title,
+    tiles: config.tiles.map(tile => Object.assign({}, presets.tile, tile))
+  })
+});
