@@ -1,18 +1,15 @@
+const commandLineArguments = require('yargs').argv;
+const configuration = require('./electron-config')(commandLineArguments);
+
 const { app, BrowserWindow } = require('electron');
-const path = require('path');
 
 let window;
 
 const createWindow = () => {
-  window = new BrowserWindow({
-    fullscreen: true,
-    webPreferences: {
-      experimentalFeatures: true,
-    }
-  });
+  window = new BrowserWindow(configuration.browserWindowConfiguration);
   window.on('closed', () => window = null);
 
-  window.loadURL(`file://${__dirname}/index.html`);
+  window.loadURL(configuration.url);
 };
 
 app.on('ready', createWindow);

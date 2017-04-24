@@ -1,3 +1,4 @@
+const parameters = require('query-string').parse(location.search);
 const config = require(__dirname + '/static/js/config/index.js');
 const optimize = require(__dirname + '/static/js/optimize.js');
 const tileCreator = require(__dirname + '/static/js/components/tile.js');
@@ -5,7 +6,7 @@ const tileControlsCreator = require(__dirname + '/static/js/components/tile-cont
 
 const tiles = document.getElementById('tiles');
 
-config.from(__dirname + '/stats.json')
+config.from(parameters.localConfig)
   .then(data => {
 
     document.title = data.title;

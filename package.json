@@ -9,7 +9,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "pack": "build --dir",
-    "dist": "build"
+    "dist": "build",
+    "start": "./node_modules/.bin/electron main.js --local-config=./stats.json"
   },
   "author": "",
   "license": "ISC",
