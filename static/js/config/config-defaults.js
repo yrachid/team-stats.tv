@@ -1,5 +1,3 @@
-const lodash = require('lodash');
-
 const presets = {
   title: 'Tele Stats',
   tile: {
