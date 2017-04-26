@@ -10,6 +10,8 @@ module.exports = commandLineArguments => ({
     webPreferences: {
       experimentalFeatures: true,
     }
-  }
+  },
+
+  remoteAddress: commandLineArguments.remote ? `http://${commandLineArguments.remote}`: ''
 
 });

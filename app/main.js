@@ -1,5 +1,6 @@
 const commandLineArguments = require('yargs').argv;
-const configuration = require('./electron-config')(commandLineArguments);
+const configuration = require('./config')(commandLineArguments);
+const socket = require('./socket');
 
 const { app, BrowserWindow } = require('electron');
 
@@ -8,6 +9,8 @@ let window;
 const createWindow = () => {
   window = new BrowserWindow(configuration.browserWindowConfiguration);
   window.on('closed', () => window = null);
+
+  socket(configuration);
 
   window.loadURL(configuration.url);
 };
