@@ -1,3 +1,5 @@
+const DEFAULT_SCROLL_TIMEOUT = 1000;
+
 module.exports = (document, tileData) => {
   const tile = document.createElement('webview');
 
@@ -9,12 +11,19 @@ module.exports = (document, tileData) => {
   tile.style['grid-column-start'] = tileData.position.columnStart;
   tile.style['grid-column-end'] = tileData.position.columnEnd;
 
+  if (tileData.presets.refreshRate) {
+    const intervalInMiliseconds = tileData.presets.refreshRate * 60 * 1000;
+    setInterval(tile.reload.bind(tile), intervalInMiliseconds);
+  }
+
   tile.addEventListener('dom-ready', () => {
     tile.setZoomFactor(tileData.presets.zoomFactor);
   });
 
-  tile.addEventListener('did-stop-loading', () => {
-    tile.executeJavaScript(`document.querySelector('body').scrollTop=${tileData.presets.scrollTop}`);
+  tile.addEventListener('did-finish-load', () => {
+    setTimeout(function () {
+      tile.executeJavaScript(`window.scrollTo(window.pageXOffset, ${tileData.presets.scrollTop})`);
+    }, DEFAULT_SCROLL_TIMEOUT);
   });
 
   return tile;
