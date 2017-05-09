@@ -1,4 +1,4 @@
-const DEFAULT_SCROLL_TIMEOUT = 1000;
+const DEFAULT_SCROLL_TIMEOUT = 2000;
 
 module.exports = (document, tileData) => {
   const tile = document.createElement('webview');
@@ -16,12 +16,9 @@ module.exports = (document, tileData) => {
     setInterval(tile.reload.bind(tile), intervalInMiliseconds);
   }
 
-  tile.addEventListener('dom-ready', () => {
-    tile.setZoomFactor(tileData.presets.zoomFactor);
-  });
-
   tile.addEventListener('did-finish-load', () => {
     setTimeout(function () {
+      tile.setZoomFactor(tileData.presets.zoomFactor);
       tile.executeJavaScript(`window.scrollTo(window.pageXOffset, ${tileData.presets.scrollTop})`);
     }, DEFAULT_SCROLL_TIMEOUT);
   });
