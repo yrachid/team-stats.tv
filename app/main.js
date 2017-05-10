@@ -1,18 +1,37 @@
 const commandLineArguments = require('yargs').argv;
 const configuration = require('./config')(commandLineArguments);
+const tileConfig = require('./tile-config');
 const socket = require('./socket');
 
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, dialog } = require('electron');
 
 let window;
 
 const createWindow = () => {
-  window = new BrowserWindow(configuration.browserWindowConfiguration);
+  window = new BrowserWindow(configuration.browserWindow);
   window.on('closed', () => window = null);
 
-  socket(configuration);
+  const tileConfigFile = dialog.showOpenDialog(configuration.fileDialog);
 
-  window.loadURL(configuration.url);
+  if (!tileConfigFile) {
+    return console.log('Nope');
+  }
+
+  tileConfig.from(tileConfigFile[0])
+  .then(config => {
+    console.log(config);
+    socket(configuration);
+
+    window.loadURL(configuration.url);
+
+    window.webContents.on('did-finish-load', () => {
+      window.webContents.send('new-config', config);
+    });
+
+  });
+
+
+
 };
 
 app.on('ready', createWindow);
