@@ -19,7 +19,7 @@ const createWindow = () => {
 
   tileConfig.from(tileConfigFile[0])
   .then(config => {
-    console.log(config);
+
     socket(configuration);
 
     window.loadURL(configuration.url);
@@ -29,8 +29,6 @@ const createWindow = () => {
     });
 
   });
-
-
 
 };
 
