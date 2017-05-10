@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "pack": "build --dir",
     "dist": "build",
-    "start": "./node_modules/.bin/electron ./app/main.js --local-config=./stats.json --remote-host-name=localhost --remote-host-port=4567 --remote=localhost:4567"
+    "start": "./node_modules/.bin/electron ./app/main.js --remote=localhost:4567"
   },
   "author": "",
   "license": "ISC",

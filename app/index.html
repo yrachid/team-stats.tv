@@ -9,9 +9,22 @@
   </head>
 
   <body id="app">
+    <!-- <div id="tiles">
+    </div> -->
     <div id="tiles">
+      <webview
+        v-for="item in tiles"
+        v-bind:id="item.id"
+        v-bind:src="item.src"
+        v-bind:class="item.classList"
+        v-bind:style="item.position"></webview>
+
+
+
     </div>
   </body>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.3/vue.min.js" charset="utf-8"></script>
   <script src="static/js/main.js" charset="utf-8"></script>
+
 </html>

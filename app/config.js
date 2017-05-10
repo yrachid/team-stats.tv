@@ -1,10 +1,16 @@
 const queryString = require('query-string');
 
-const INDEX = `file://${__dirname}/index.html`;
+const FILE_PATH = `file://${__dirname}`
+const INDEX = `${FILE_PATH}/index.html`;
+const ERROR = `${FILE_PATH}/error.html`;
 
 module.exports = commandLineArguments => ({
 
   url: `${INDEX}?${queryString.stringify(commandLineArguments)}`,
+  urls: {
+    index: `${INDEX}?${queryString.stringify(commandLineArguments)}`,
+    error: err => `${ERROR}?${queryString.stringify({message: err.message})}`
+  },
   browserWindow: {
     fullscreen: true,
     webPreferences: {
