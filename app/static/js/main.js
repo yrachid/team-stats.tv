@@ -14,20 +14,5 @@ ipc.on('new-config', (event, data) => {
     data
   });
 
-  // data
-  //   .tiles
-  //   .map(
-  //     tileData => ({ tile: tileCreator(document, tileData), data: tileData })
-  //   )
-  //   .map(tileData => ({
-  //       tile: tileData.tile,
-  //       tileControls: tileControlsCreator(document, tileData.data, tileData.tile)
-  //     })
-  //   )
-  //   .forEach(tileData => {
-  //     tiles.appendChild(tileData.tile);
-  //     tiles.appendChild(tileData.tileControls);
-  //   });
-
-    optimize();
+  optimize();
 });
