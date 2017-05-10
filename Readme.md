@@ -12,12 +12,12 @@ Ejemplo:
 
 ### Diferentemente de los browsers, la app debe:
 
-- Permite configureo de una `tele` utilizando archivos `json`
-  - Eso permite que la configuración sea versionada en un repo git
-- Permite refresco individual de cada `tile`
-- Permite configurear refresco automatico de `tiles`
-- Permite controlar zoom individual
-- Ocupa menos espaço de tela com bordas
+- ~~Permitir configureo de una `tele` utilizando archivos `json`~~(listo)
+  - ~~Eso permite que la configuración sea versionada en un repo git~~(listo)
+- ~~Permitir refresco individual de cada `tile`~~ (listo)
+- ~~Permitir configurear refresco automatico de `tiles`~~ (listo)
+- ~~Permitir controlar zoom individual~~ (listo)
+- ~~Ocupar menos espacio de la pantalla, sin tener bordas y optimizando el HTML renderizado.~~ (listo)
 - Tiene un botón para hangouts
 
 Incertidumbres:
