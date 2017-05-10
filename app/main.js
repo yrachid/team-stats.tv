@@ -14,7 +14,7 @@ const createWindow = () => {
   const tileConfigFile = dialog.showOpenDialog(configuration.fileDialog);
 
   if (!tileConfigFile) {
-    return console.log('Nope');
+    window.loadURL(configuration.urls.error());
   }
 
   tileConfig.from(tileConfigFile[0])
@@ -28,7 +28,8 @@ const createWindow = () => {
       window.webContents.send('new-config', config);
     });
 
-  });
+  })
+  .catch(error => window.loadURL(configuration.urls.error(error)));
 
 };
 
