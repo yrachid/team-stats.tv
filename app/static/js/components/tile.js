@@ -1,4 +1,4 @@
-const DEFAULT_SCROLL_TIMEOUT = 2000;
+const DEFAULT_SCROLL_TIMEOUT = 10000;
 
 module.exports = (document, tileData) => {
   const tile = document.createElement('webview');
