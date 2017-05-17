@@ -1,5 +1,37 @@
 # Team Stats TV
 
+Un monitor para equipos distribuidos.
+
+# Tech stack:
+
+- Node.js
+
+- Electron
+
+- Vue (not yet, but soon)
+
+- Socket.io
+
+- Webpack (if possible, soon)
+
+
+# How to:
+
+As of today, there is no installer, the easiest way to get up and running is to: 
+
+- Clone this repository
+
+- `npm install`
+
+- `npm start`
+
+- select a valid `.json` configuration file (an example is cooming soon) from the file picker dialog
+
+- pray for the best
+
+
+# Motivación
+
 Un intento de reemplazo de los browsers como herramienta de Tele.
 
 ### Que debe hacer la app para que sea mejor que los browsers:
