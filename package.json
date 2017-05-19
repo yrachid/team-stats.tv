@@ -2,7 +2,7 @@
   "name": "tele-papa-bravo",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "app/main.js",
   "build": {
     "appId": "io.github.othman853.telestats"
   },
@@ -14,8 +14,10 @@
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.6.2"
+  },
   "dependencies": {
-    "electron": "^1.6.2",
     "query-string": "^4.3.4",
     "socket.io-client": "^1.7.3",
     "yargs": "^8.0.1"
