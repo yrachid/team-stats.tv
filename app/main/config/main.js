@@ -1,14 +1,13 @@
 const queryString = require('query-string');
 
 const FILE_PATH = `file://${__dirname}`
-const INDEX = `${FILE_PATH}/index.html`;
-const ERROR = `${FILE_PATH}/error.html`;
+const INDEX = `${FILE_PATH}/render/index.html`;
+const ERROR = `${FILE_PATH}/render/error.html`;
 
-module.exports = commandLineArguments => ({
+module.exports = {
 
-  url: `${INDEX}?${queryString.stringify(commandLineArguments)}`,
   urls: {
-    index: `${INDEX}?${queryString.stringify(commandLineArguments)}`,
+    index: INDEX,
     error: err => `${ERROR}?${queryString.stringify({message: err.message})}`
   },
   browserWindow: {
@@ -22,8 +21,5 @@ module.exports = commandLineArguments => ({
     filters: [
       { name: 'Configuration', extensions: ['json'] }
     ]
-  },
-
-  remoteAddress: commandLineArguments.remote ? `http://${commandLineArguments.remote}`: ''
-
-});
+  }
+};

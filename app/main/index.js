@@ -1,7 +1,5 @@
-const commandLineArguments = require('yargs').argv;
-const configuration = require('./config')(commandLineArguments);
-const tileConfig = require('./tile-config');
-const socket = require('./socket');
+const configuration = require('./config/main')
+const tileConfig = require('./config/tiles');
 
 const { app, BrowserWindow, dialog } = require('electron');
 
@@ -20,9 +18,7 @@ const createWindow = () => {
   tileConfig.from(tileConfigFile[0])
   .then(config => {
 
-    socket(configuration);
-
-    window.loadURL(configuration.url);
+    window.loadURL(configuration.urls.index);
 
     window.webContents.on('did-finish-load', () => {
       window.webContents.send('new-config', config);

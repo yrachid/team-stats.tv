@@ -2,7 +2,7 @@
   "name": "tele-papa-bravo",
   "version": "1.0.0",
   "description": "",
-  "main": "app/main.js",
+  "main": "app/main/index.js",
   "build": {
     "appId": "io.github.othman853.telestats"
   },
@@ -10,7 +10,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "pack": "build --dir",
     "dist": "build",
-    "start": "./node_modules/.bin/electron ./app/main.js --local-config=./stats.json --remote-host-name=localhost --remote-host-port=4567 --remote=localhost:4567"
+    "start": "./node_modules/.bin/electron ./app/main/index.js"
   },
   "author": "",
   "license": "ISC",
