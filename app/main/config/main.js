@@ -1,8 +1,8 @@
 const queryString = require('query-string');
 
-const FILE_PATH = `file://${__dirname}`
-const INDEX = `${FILE_PATH}/render/index.html`;
-const ERROR = `${FILE_PATH}/render/error.html`;
+const FILE_PATH = `file://${process.cwd()}`
+const INDEX = `${FILE_PATH}/app/render/index.html`;
+const ERROR = `${FILE_PATH}/app/render/error.html`;
 
 module.exports = {
 

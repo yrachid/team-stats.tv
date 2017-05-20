@@ -1,5 +1,6 @@
 const configuration = require('./config/main')
 const tileConfig = require('./config/tiles');
+const path = require('path');
 
 const { app, BrowserWindow, dialog } = require('electron');
 
@@ -18,6 +19,8 @@ const createWindow = () => {
   tileConfig.from(tileConfigFile[0])
   .then(config => {
 
+    console.log('Loaded Tile Config');
+
     window.loadURL(configuration.urls.index);
 
     window.webContents.on('did-finish-load', () => {
@@ -25,7 +28,10 @@ const createWindow = () => {
     });
 
   })
-  .catch(error => window.loadURL(configuration.urls.error(error)));
+  .catch(error => {
+    console.log('Failed to load Tile Config');
+    window.loadURL(configuration.urls.error(error));
+  });
 
 };
 
