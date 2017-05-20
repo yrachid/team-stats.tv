@@ -1,16 +1,22 @@
-const presets = {
-  title: 'Tele Stats',
+const {assign} = Object;
+
+const defaults = {
+  title: 'Team Stats',
   tile: {
     presets: {
       scrollTop: 0,
-      zoomFactor: 1
+      zoomFactor: 1,
+      refreshRate: 0
     }
   }
 };
 
 module.exports = config => new Promise( (resolve, reject) => {
-  return resolve({
-    title: config.title || presets.title,
-    tiles: config.tiles.map(tile => Object.assign({}, presets.tile, tile))
-  })
+  const title = config.title || defaults.title;
+  const tiles = config.tiles.map(tile => {
+    const presets = assign({}, defaults.tile.presets, tile.presets);
+    return assign({}, tile, { presets });
+  });
+
+  return resolve({ title, tiles });
 });
