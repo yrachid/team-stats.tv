@@ -1,7 +1,7 @@
 module.exports = configuration => new Promise((resolve, reject) => {
 
   if (!configuration.tiles) {
-    return reject(new Error('Config file has no \'tiles\' section'));
+    return reject(new Error('Config file has no \'tiles\' section, or \'tiles\' is falsy.'));
   }
 
   if (configuration.tiles.constructor.name !== 'Array') {

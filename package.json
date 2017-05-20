@@ -7,7 +7,7 @@
     "appId": "io.github.othman853.telestats"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --recursive --require test/config.js",
     "pack": "build --dir",
     "dist": "build",
     "start": "./node_modules/.bin/electron ./app/main/index.js"
