@@ -1,15 +1,18 @@
-module.exports = configuration => new Promise((resolve, reject) => {
+module.exports = (ajv, schema) => configuration => new Promise((resolve, reject) => {
 
-  if (!configuration.tiles) {
-    return reject(new Error('Config file has no \'tiles\' section, or \'tiles\' is falsy.'));
-  }
+  const validator = ajv.compile(schema);
 
-  if (configuration.tiles.constructor.name !== 'Array') {
-    return reject(new Error('The \'tiles\' section of config file is not an Array. It should be. With items on it.'));
-  }
+  const isValid = validator(configuration);
 
-  if (configuration.tiles.length === 0) {
-    return reject(new Error('The \'tiles\' array must have items'));
+  if (!isValid) {
+    const errorMessages = validator
+      .errors
+      .map(error => `${error.dataPath} ${error.message}`)
+      .join('; ');
+
+    return reject(
+      new Error(`Failed to parse configuration: \n ${errorMessages}`)
+    );
   }
 
   return resolve(configuration);
