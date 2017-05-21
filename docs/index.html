@@ -26,14 +26,12 @@
                 <div class="level-item has-text-centered">
                   <a href="#how-it-works" class="title is-4">How it works</a>
                 </div>
+
                 <div class="level-item has-text-centered">
-                  <a href="#" class="title is-4">Getting started</a>
+                  <a href="#demo" class="title is-4">Demo</a>
                 </div>
                 <div class="level-item has-text-centered">
-                  <a href="#" class="title is-4">Demo</a>
-                </div>
-                <div class="level-item has-text-centered">
-                  <a href="#" class="title is-4">Sample config</a>
+                  <a href="#config" class="title is-4">Configuring</a>
                 </div>
               </nav>
             </div>
@@ -85,6 +83,84 @@
                 <li>Better use of the screen space</li>
               </ul>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section is-large" id="demo">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-12">
+            <h1 class="title is-1">Demo</h1>
+            <figure>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/-AkZc8ero9Q" frameborder="0" allowfullscreen></iframe>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section is-large" id="config">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-12">
+            <h1 class="title is-1">Configuring</h1>
+            <p>These are all the required attributes for each tile of the page:</p>
+            <pre>
+              <code>
+                {
+
+                  "title": "Team Stats TV",
+
+                  "tiles": [
+                    {
+                      "id": "wercker",
+                      "src": "https://app.wercker.com/aceleradora11/conecta/runs",
+                      "position": {
+                        "columnStart": 1,
+                        "columnEnd": 101,
+                        "rowStart": 45,
+                        "rowEnd": 101
+                      }
+                    }
+                  ]
+
+                }
+              </code>
+            </pre>
+
+            <p>It is also possible to configure some presets to adjust the tiles
+              once they're rendered. Things like Zoom Factor, Refresh Rates or Scroll Top:</p>
+            <pre>
+              <code>
+                {
+
+                  "title": "Team Stats TV",
+
+                  "tiles": [
+                    {
+                      "id": "wercker",
+                      "src": "https://app.wercker.com/aceleradora11/conecta/runs",
+                      "classList": "wercker",
+                      "position": {
+                        "columnStart": 1,
+                        "columnEnd": 101,
+                        "rowStart": 45,
+                        "rowEnd": 101
+                      },
+                      "presets": {
+                        "zoomFactor": 1,
+                        "scrollTop": 125,
+                        "refreshRate": 3
+                      }
+                    }
+                  ]
+
+                }
+
+              </code>
+            </pre>
           </div>
         </div>
       </div>
