@@ -3,7 +3,13 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.1/css/bulma.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Team Stats</title>
+    <style media="screen">
+      .is-clickable:hover {
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
 
@@ -18,6 +24,9 @@
             <div class="column is-7">
               <nav class="level">
                 <div class="level-item has-text-centered">
+                  <a href="#how-it-works" class="title is-4">How it works</a>
+                </div>
+                <div class="level-item has-text-centered">
                   <a href="#" class="title is-4">Getting started</a>
                 </div>
                 <div class="level-item has-text-centered">
@@ -30,43 +39,93 @@
             </div>
           </div>
         </div>
-
       </section>
     </section>
 
-    <section class="section is-large">
+    <section class="section is-large" id="how-it-works">
       <div class="container">
         <div class="columns">
           <div class="column is-12">
-            <h1 class="title is-1">What and why</h1>
+            <h1 class="title is-1">How it works</h1>
 
             <div class="content">
-              <p class="title is-3">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-              <p class="title is-3">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-              <p class="title is-3">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-            </div>
+              <h1>The problem</h1>
+              <p>
+                Nowadays, teams rely on many tools to check their work along
+                all stages of software creation. Tools like CI servers, server
+                and code monitoring, statistics about your product usage and so
+                on. All these tools must be visible to all people in the team,
+                specially if they work distributed across different locations.
+              </p>
 
+              <h1>The current solution</h1>
+              <p>
+                Today, the solution is to set up a TV at the end of the desks
+                and open multiple web browser windows displaying all
+                the tools the team uses. Something like the following:
+              </p>
+
+              <figure class="image">
+                <img id="browser-sample" src="browser-usage-sample.png" />
+              </figure>
+
+              <h1>Team stats</h1>
+              <p>
+                Team stats is an Electron application that tries to solve this
+                problem a little better. There are plenty of feature ideas that
+                could be implemented to be a better solution than the browser,
+                helping teams communicate better through their TVs. Team
+                Stats is an attempt to implement them.
+              </p>
+              <p>Things like:</p>
+              <ul>
+                <li>Tabs configured from JSON file</li>
+                <li>Automatic zoom and scrolling configurations</li>
+                <li>Automatic and individual page refreshing</li>
+                <li>Better use of the screen space</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section is-large">
-      <div class="container">
-        <div class="columns">
-          <div class="column is-12">
-            <h1 class="title is-1">How</h1>
 
-            <div class="content">
-              <p class="title is-3">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-              <p class="title is-3">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-              <p class="title is-3">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-            </div>
-
-          </div>
-        </div>
+    <!-- <div class="modal" id="browser-sample-modal">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <figure class="image">
+          <img src="browser-usage-sample.png"/>
+        </figure>
       </div>
-    </section>
+      <button class="modal-close"></button>
+    </div>
+
+    <script type="text/javascript">
+      const browserSampleImage = document.querySelector('#browser-sample');
+      const browserSampleImageModal = document.querySelector('#browser-sample-modal');
+      const closeModalButtons = document.querySelectorAll('.modal-close');
+      const modalBackgrounds = document.querySelectorAll('.modal-background');
+
+      browserSampleImage.addEventListener('click', function() {
+        browserSampleImageModal.classList.add('is-active');
+      });
+
+      const closeModal = function() {
+        document.querySelectorAll('.modal').forEach(function(modal) {
+          modal.classList.remove('is-active');
+        });
+      };
+
+      closeModalButtons.forEach(function(button) {
+        button.addEventListener('click', closeModal);
+      });
+
+      modalBackgrounds.forEach(function(background) {
+        background.addEventListener('click', closeModal);
+      });
+
+    </script> -->
 
   </body>
 </html>
