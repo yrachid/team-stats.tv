@@ -7,7 +7,7 @@ describe.skip('unit -> main -> config -> tiles -> validator', () => {
   const ajv = { compile: td.function() };
   const schema = {};
 
-  const validator = validate(ajv, schema);
+  // const validator = validate(ajv, schema);
 
   it('', done => {
 

@@ -2,7 +2,7 @@ const Ajv = require('ajv');
 const validator = require('../../../../../app/main/config/tiles/validator');
 const schema = require('../../../../../app/main/config/tiles/schema');
 
-describe('integration -> main -> config -> tiles -> validator', () => {
+describe('component -> main -> config -> tiles -> validator', () => {
 
   const validate = validator(new Ajv(), schema);
 
