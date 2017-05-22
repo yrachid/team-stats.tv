@@ -2,7 +2,7 @@
   "name": "tele-papa-bravo",
   "version": "1.0.0",
   "description": "",
-  "main": "app/main/index.js",
+  "main": "app/index.js",
   "build": {
     "appId": "io.github.othman853.telestats"
   },
@@ -10,7 +10,7 @@
     "test": "mocha --recursive --require test/config.js",
     "pack": "build --dir",
     "dist": "build",
-    "start": "./node_modules/.bin/electron ./app/main/index.js"
+    "start": "./node_modules/.bin/electron ./app/index.js"
   },
   "author": "",
   "license": "ISC",

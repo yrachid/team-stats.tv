@@ -1,5 +1,5 @@
-const defaults = require('../../../../../app/main/config/tiles/defaults');
-const merger = require('../../../../../app/main/config/tiles/defaults-merger');
+const defaults = require(resolve('app/config/tiles/defaults'));
+const merger = require(resolve('app/config/tiles/defaults-merger'));
 
 describe('component -> main -> config -> tiles -> defaults-merger', () => {
 

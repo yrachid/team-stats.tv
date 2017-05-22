@@ -1,4 +1,4 @@
-const validate = require('../../../../../app/main/config/tiles/validator');
+const validate = require(resolve('app/config/tiles/validator'));
 
 describe('unit -> main -> config -> tiles -> validator', () => {
 

@@ -1,6 +1,6 @@
 const Ajv = require('ajv');
-const validator = require('../../../../../app/main/config/tiles/validator');
-const schema = require('../../../../../app/main/config/tiles/schema');
+const validator = require(resolve('app/config/tiles/validator'));
+const schema = require(resolve('app/config/tiles/schema'));
 
 describe('component -> main -> config -> tiles -> validator', () => {
 

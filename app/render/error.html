@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <title>Error</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/reset.css">
     <style media="screen">
       body {
-        background-image: url('images/play.gif');
         background-size: cover;
         color: #FFF;
         display: flex;
@@ -23,21 +23,35 @@
         text-align: center;
         text-transform: uppercase;
         font-weight: bold;
-        text-shadow: 5px 5px #000, -2px -2px #C92D2D, 2px 2px cyan;
+        text-shadow: 5px 5px #000;
+      }
+
+      h2 {
+        font-size: 4em;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        text-shadow: 5px 5px #000;
+      }
+      #wrapper {
+        margin: 10px;
       }
     </style>
 
   </head>
   <body>
-    <h1>Please, fix this:</h1>
+    <div id="wrapper">
+      <h1>Please, fix this:</h1>
+    </div>
+
   </body>
 
   <script type="text/javascript">
     const queryString = require('query-string');
 
     const params = queryString.parse(location.search);
-    const errorMessage = document.createElement('h1');
+    const errorMessage = document.createElement('h2');
     errorMessage.innerHTML = params.message;
-    document.body.appendChild(errorMessage);
+    document.querySelector('#wrapper').appendChild(errorMessage);
   </script>
 </html>

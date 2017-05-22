@@ -10,7 +10,7 @@ const validate = validator(new Ajv(), schema);
 
 module.exports = {
 
-  from: configFilePath => new Promise((resolve, reject) =>
+  fromFile: configFilePath => new Promise((resolve, reject) =>
     read(configFilePath)
       .then(validate)
       .then(mergeDefaults)

@@ -11,7 +11,7 @@ module.exports = (ajv, schema) => configuration => new Promise((resolve, reject)
       .join('; ');
 
     return reject(
-      new Error(`Failed to parse configuration: \n ${errorMessages}`)
+      new Error(`Failed to parse configuration: <br /> ${errorMessages}`)
     );
   }
 

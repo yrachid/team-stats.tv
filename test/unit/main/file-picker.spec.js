@@ -4,7 +4,7 @@ describe('unit -> main -> file-picker', () => {
     showOpenDialog: td.function()
   };
 
-  const picker = proxyquire(path.resolve('app/main/file-picker'), {
+  const picker = proxyquire(resolve('app/main/file-picker'), {
     'electron': { dialog }
   });
 
