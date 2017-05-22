@@ -8,6 +8,9 @@
   },
   "scripts": {
     "test": "mocha --recursive --require test/config.js",
+    "test:unit": "mocha --recursive --require test/config.js test/unit",
+    "test:component": "mocha --recursive --require test/config.js test/component",
+    "test:functional": "mocha --recursive --require test/config.js test/functional",
     "pack": "build --dir",
     "dist": "build",
     "start": "./node_modules/.bin/electron ./app/index.js"
