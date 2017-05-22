@@ -23,7 +23,7 @@ describe('unit -> main -> config -> tiles -> validator', () => {
 
   });
 
-  it('Should reject the received config', done => {
+  it.skip('Should reject the received config', done => {
 
     const config = { someConfig: true };
     td.when(ajv.compile(schema)).thenReturn(ajvValidator);

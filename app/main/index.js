@@ -1,8 +1,9 @@
 const configuration = require('./config/main')
 const tileConfig = require('./config/tiles');
+const filePicker = require('./file-picker');
 const path = require('path');
 
-const { app, BrowserWindow, dialog } = require('electron');
+const { app, BrowserWindow } = require('electron');
 
 let window;
 
@@ -10,10 +11,10 @@ const createWindow = () => {
   window = new BrowserWindow(configuration.browserWindow);
   window.on('closed', () => window = null);
 
-  const tileConfigFile = dialog.showOpenDialog(configuration.fileDialog);
+  const tileConfigFile = filePicker.json();
 
   if (!tileConfigFile) {
-    window.loadURL(configuration.urls.error());
+    return window.loadURL(configuration.urls.default);
   }
 
   tileConfig.from(tileConfigFile[0])
