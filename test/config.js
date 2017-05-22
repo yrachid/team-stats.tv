@@ -6,9 +6,11 @@ const path = require('path');
 
 chai.use(tdChai(td))
 
+const basePath = path.resolve();
+
 global.expect = chai.expect;
 global.td = td;
 global.proxyquire = proxyquire;
 global.path = path;
 global.resolve = path.resolve;
-global.resolveAndRequire = file => require(path.resolve(file));
+global.solve = (file, stubs = {}) => proxyquire(path.join(basePath, file), stubs);
