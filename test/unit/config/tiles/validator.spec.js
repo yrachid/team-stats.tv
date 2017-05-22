@@ -1,18 +1,19 @@
-const validate = require(resolve('app/config/tiles/validator'));
+const validate = solve('app/config/tiles/validator');
 
 describe('unit -> main -> config -> tiles -> validator', () => {
 
-  const ajvValidator = td.function();
+  const ajvValidator = { call: td.function() };
   const ajv = { compile: td.function() };
   const schema = { whatever: true };
+  td.when(ajv.compile(schema)).thenReturn(ajvValidator);
 
   const validator = validate(ajv, schema);
 
   it('Should resolve the received config', done => {
 
     const config = { someConfig: true };
-    td.when(ajv.compile(schema)).thenReturn(ajvValidator);
-    td.when(ajvValidator(config)).thenReturn(true);
+
+    td.when(ajvValidator.call(ajvValidator, config)).thenReturn(true);
 
     validator(config)
       .then(validConfig => {
@@ -23,27 +24,27 @@ describe('unit -> main -> config -> tiles -> validator', () => {
 
   });
 
-  it.skip('Should reject the received config', done => {
+  it('Should reject the received config', done => {
 
     const config = { someConfig: true };
-    td.when(ajv.compile(schema)).thenReturn(ajvValidator);
-    td.when(ajvValidator(config)).thenReturn(false);
+    ajvValidator.errors = [];
+
+    td.when(ajvValidator.call(ajvValidator, config)).thenReturn(false);
 
     validator(config)
-      then( () => done(new Error('Validator should have rejected config')))
+      .then( () => done(new Error('Validator should have rejected config')))
       .catch(() => done());
   });
 
-  it.skip('Should reject the received config and send an error with formatted message', done => {
-    const ajvValidatorWithErrors = function() { return false };
-    ajvValidatorWithErrors.errors = [{ dataPath: 'p', message: 'bla' }];
+  it('Should reject the received config and send an error with formatted message', done => {
+
     const config = { someConfig: true };
-    td.when(ajv.compile(schema)).thenReturn(ajvValidatorWithErrors);
+    ajvValidator.errors = [{ dataPath: 'p', message: 'bla' }]
 
     validator(config)
       .then( () => done(new Error('Validator should have rejected config')))
       .catch(error => {
-        expect(error.message).to.contain('Failed to parse configuration:')
+        expect(error.message).to.equal('Failed to parse configuration: <br /> p bla');
         done();
       });
   });

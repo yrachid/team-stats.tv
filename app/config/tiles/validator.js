@@ -2,7 +2,7 @@ module.exports = (ajv, schema) => configuration => new Promise((resolve, reject)
 
   const validator = ajv.compile(schema);
 
-  const isValid = validator(configuration);
+  const isValid = validator.call(validator, configuration);
 
   if (!isValid) {
     const errorMessages = validator
