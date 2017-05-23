@@ -1,4 +1,5 @@
 const fs = require('fs');
+const utils = require('../../utils');
 
 module.exports = configFilePath => new Promise((resolve, reject) => {
 
@@ -9,7 +10,7 @@ module.exports = configFilePath => new Promise((resolve, reject) => {
     }
 
     try {
-      return resolve(JSON.parse(configContent.toString()));
+      return resolve(utils.json.parse(configContent.toString()));
     } catch (parsingError) {
       return reject(new Error(`Could not parse configuration: ${parsingError.message}`));
     }

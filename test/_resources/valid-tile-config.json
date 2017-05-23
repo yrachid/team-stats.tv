@@ -1,0 +1,24 @@
+{
+
+  "title": "I am valid",
+
+  "tiles": [
+    {
+      "id": "wercker",
+      "src": "https://app.wercker.com/",
+      "classList": "wercker",
+      "position": {
+        "columnStart": 1,
+        "columnEnd": 101,
+        "rowStart": 45,
+        "rowEnd": 101
+      },
+      "presets": {
+        "zoomFactor": 1,
+        "scrollTop": 125,
+        "refreshRate": 3
+      }
+    }
+  ]
+
+}

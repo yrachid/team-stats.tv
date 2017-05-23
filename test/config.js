@@ -13,4 +13,5 @@ global.td = td;
 global.proxyquire = proxyquire;
 global.path = path;
 global.resolve = path.resolve;
+global.resourcePath = partialPath => path.join(path.resolve(), 'test', '_resources', partialPath);
 global.solve = (file, stubs = {}) => proxyquire(path.join(basePath, file), stubs);
