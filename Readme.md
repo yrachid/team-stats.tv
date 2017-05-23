@@ -1,34 +1,46 @@
 # Team Stats TV
 
-Un monitor para equipos distribuidos.
+A TV Monitor for (distributed) software development teams.
 
-# Tech stack:
+[![CircleCI](https://circleci.com/gh/othman853/team-stats.tv.svg?style=svg)](https://circleci.com/gh/othman853/team-stats.tv)
+
+# Tech Stack:
 
 - Node.js
 
 - Electron
 
-- Vue (not yet, but soon)
+# Test Stack:
 
-- Socket.io
+- Spectron
 
-- Webpack (if possible, soon)
+- Mocha
 
+- Chai
 
-# How to:
+- TestDouble
 
-As of today, there is no installer, the easiest way to get up and running is to: 
+- Proxyquire
+
+# Getting started:
 
 - Clone this repository
 
 - `npm install`
 
-- `npm start`
 
-- select a valid `.json` configuration file (an example is cooming soon) from the file picker dialog
+To generate a `.dmg` file:
 
-- pray for the best
+- `npm run dist`
 
+To run the tests:
+- `npm test`
+
+- `npm run test:unit`
+
+- `npm run test:component`
+
+- `npm run test:functional`
 
 # Motivación
 
