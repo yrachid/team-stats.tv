@@ -1,6 +1,6 @@
 {
-  "name": "tele-papa-bravo",
-  "version": "1.0.0",
+  "name": "team-stats-tv",
+  "version": "0.1.0",
   "description": "",
   "main": "app/index.js",
   "build": {
