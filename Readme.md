@@ -22,6 +22,8 @@ A TV Monitor for (distributed) software development teams.
 
 - Proxyquire
 
+- Stryker
+
 # Getting started:
 
 - Clone this repository
