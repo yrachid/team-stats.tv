@@ -1,8 +1,6 @@
 describe('unit -> config -> tiles -> reader', () => {
 
-  const fs = {
-    readFile: td.function()
-  };
+  const fs = td.object(['readFile']);
 
   const reader = solve('app/config/tiles/reader', {
     'fs': fs

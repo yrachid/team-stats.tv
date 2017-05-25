@@ -1,8 +1,6 @@
 describe('unit -> main -> file-picker', () => {
 
-  const dialog = {
-    showOpenDialog: td.function()
-  };
+  const dialog = td.object(['showOpenDialog']);
 
   const picker = solve('app/main/file-picker', {
     'electron': { dialog }

@@ -1,8 +1,6 @@
 describe('unit -> main -> menu', () => {
 
-  const Menu = {
-    buildFromTemplate: td.function()
-  };
+  const Menu = td.object(['buildFromTemplate']);
 
   const template = td.function();
 

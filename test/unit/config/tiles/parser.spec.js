@@ -1,7 +1,7 @@
 describe('unit -> config -> tiles -> parser', () => {
 
   const utils = {
-    json: td.object('parse')
+    json: td.object(['parse'])
   };
 
   const parser = solve('app/config/tiles/parser', {

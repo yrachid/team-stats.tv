@@ -2,8 +2,8 @@ const validate = solve('app/config/tiles/validator');
 
 describe('unit -> main -> config -> tiles -> validator', () => {
 
-  const ajvValidator = { call: td.function() };
-  const ajv = { compile: td.function() };
+  const ajvValidator = td.object(['call']);
+  const ajv = td.object(['compile']);
   const schema = { whatever: true };
   td.when(ajv.compile(schema)).thenReturn(ajvValidator);
 
