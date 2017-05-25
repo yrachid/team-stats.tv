@@ -11,6 +11,7 @@
     "test:unit": "mocha --recursive --require test/config.js test/unit",
     "test:component": "mocha --recursive --require test/config.js test/component",
     "test:functional": "mocha --recursive --require test/config.js test/functional",
+    "test:mutation": "stryker run",
     "pack": "build --dir",
     "dist": "build",
     "start": "./node_modules/.bin/electron ./app/index.js"
