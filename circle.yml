@@ -7,4 +7,4 @@ dependencies:
     - npm install -g codeclimate-test-reporter
 test:
   post:
-    - CODECLIMATE_REPO_TOKEN=$CODECLIMATE_KEY codeclimate-test-reporter
+    - codeclimate-test-reporter
