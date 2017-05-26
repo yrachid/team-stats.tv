@@ -7,4 +7,4 @@ dependencies:
     - npm install -g codeclimate-test-reporter
 test:
   post:
-    - codeclimate-test-reporter
+    - codeclimate-test-reporter < coverage/lcov.info

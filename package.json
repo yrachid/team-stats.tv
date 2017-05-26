@@ -8,6 +8,7 @@
   },
   "scripts": {
     "test": "mocha --recursive --require test/config.js",
+    "test:ci": "nyc --reporter=lcov mocha --recursive --require test/config.js",
     "test:unit": "mocha --recursive --require test/config.js test/unit",
     "test:component": "mocha --recursive --require test/config.js test/component",
     "test:functional": "mocha --recursive --require test/config.js test/functional",
@@ -25,6 +26,7 @@
     "electron": "^1.6.2",
     "eslint": "^3.19.0",
     "mocha": "^3.4.1",
+    "nyc": "^10.3.2",
     "proxyquire": "^1.8.0",
     "spectron": "^3.6.4",
     "stryker": "^0.6.1",

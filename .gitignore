@@ -2,3 +2,5 @@ node_modules/
 stats.json
 dist
 reports
+.nyc_output
+coverage
