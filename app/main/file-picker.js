@@ -1,12 +1,12 @@
-const { dialog } = require('electron');
+const { dialog } = require('electron')
 
 const configuration = {
-  json: {
-    properties: ['openFile'],
-    filters: [ { name: 'Configuration', extensions: ['json'] } ]
-  }
-};
+    json: {
+        properties: ['openFile'],
+        filters: [ { name: 'Configuration', extensions: ['json'] } ]
+    }
+}
 
 module.exports = {
-  json: () => dialog.showOpenDialog(configuration.json)
+    json: () => dialog.showOpenDialog(configuration.json)
 }

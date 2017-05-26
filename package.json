@@ -1,6 +1,6 @@
 {
   "name": "team-stats-tv",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "app/index.js",
   "build": {
@@ -15,7 +15,7 @@
     "test:functional": "mocha --recursive --require test/config.js test/functional",
     "test:mutation": "stryker run",
     "lint": "eslint app/",
-    "lint:fix": "eslint app/",
+    "lint:fix": "eslint --fix app/",
     "pack": "build --dir",
     "dist": "build",
     "start": "./node_modules/.bin/electron ./app/index.js"

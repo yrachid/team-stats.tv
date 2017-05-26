@@ -1,20 +1,20 @@
 module.exports = (ajv, schema) => configuration => new Promise((resolve, reject) => {
 
-  const validator = ajv.compile(schema);
+    const validator = ajv.compile(schema)
 
-  const isValid = validator.call(validator, configuration);
+    const isValid = validator.call(validator, configuration)
 
-  if (!isValid) {
-    const errorMessages = validator
+    if (!isValid) {
+        const errorMessages = validator
       .errors
       .map(error => `${error.dataPath} ${error.message}`)
-      .join('; ');
+      .join('; ')
 
-    return reject(
+        return reject(
       new Error(`Failed to parse configuration: <br /> ${errorMessages}`)
-    );
-  }
+    )
+    }
 
-  return resolve(configuration);
+    return resolve(configuration)
 
-});
+})
