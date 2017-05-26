@@ -12,6 +12,8 @@
     "test:component": "mocha --recursive --require test/config.js test/component",
     "test:functional": "mocha --recursive --require test/config.js test/functional",
     "test:mutation": "stryker run",
+    "lint": "eslint app/",
+    "lint:fix": "eslint app/",
     "pack": "build --dir",
     "dist": "build",
     "start": "./node_modules/.bin/electron ./app/index.js"
@@ -21,6 +23,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "electron": "^1.6.2",
+    "eslint": "^3.19.0",
     "mocha": "^3.4.1",
     "proxyquire": "^1.8.0",
     "spectron": "^3.6.4",
