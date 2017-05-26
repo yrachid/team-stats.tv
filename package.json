@@ -9,6 +9,7 @@
   "scripts": {
     "test": "mocha --recursive --require test/config.js",
     "test:ci": "nyc --reporter=lcov mocha --recursive --require test/config.js",
+    "codeclimate:send": "codeclimate-test-reporter < coverage/lcov.info",
     "test:unit": "mocha --recursive --require test/config.js test/unit",
     "test:component": "mocha --recursive --require test/config.js test/component",
     "test:functional": "mocha --recursive --require test/config.js test/functional",
@@ -23,6 +24,7 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^3.5.0",
+    "codeclimate-test-reporter": "^0.4.1",
     "electron": "^1.6.2",
     "eslint": "^3.19.0",
     "mocha": "^3.4.1",
