@@ -11,13 +11,10 @@ const validate = validator(new Ajv(), schema)
 
 module.exports = {
 
-    fromFile: configFilePath => new Promise((resolve, reject) =>
-    read(configFilePath)
+    fromFile: configFilePath =>
+      read(configFilePath)
       .then(parse)
       .then(validate)
       .then(mergeDefaults)
-      .then(resolve)
-      .catch(reject)
-  )
 
 }

@@ -29,4 +29,16 @@ describe('component -> main -> config -> tiles', () => {
 
   });
 
+  it('Should fail when loading an invalid file', done => {
+    const configPath = resourcePath('invalid-tile-config.json');
+
+    tileConfig
+      .fromFile(configPath)
+      .then(() => done(new Error('File loading should have failed')))
+      .catch(error => {
+        expect(error.message).to.equal('Failed to parse configuration: <br />  should have required property \'tiles\'');
+        done();
+      });
+  });
+
 });
