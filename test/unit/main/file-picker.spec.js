@@ -22,4 +22,20 @@ describe('unit -> main -> file-picker', () => {
 
   });
 
+  it('Should return the select file path', () => {
+    td.when(dialog.showOpenDialog(td.matchers.isA(Object))).thenReturn(['some/path']);
+
+    const selectedFile = picker.json();
+
+    expect(selectedFile).to.equal('some/path');
+  });
+
+  it('Should return null when picker brings no file', () => {
+    td.when(dialog.showOpenDialog(td.matchers.isA(Object))).thenReturn(null);
+
+    const selectedFile = picker.json();
+
+    expect(selectedFile).to.equal(null);
+  });
+
 });

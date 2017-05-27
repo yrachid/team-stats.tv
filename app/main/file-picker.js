@@ -8,5 +8,11 @@ const configuration = {
 }
 
 module.exports = {
-    json: () => dialog.showOpenDialog(configuration.json)
+    json: () => {
+      const selectedFileList = dialog.showOpenDialog(configuration.json)
+
+      return selectedFileList
+      ? selectedFileList[0]
+      : null
+    }
 }
