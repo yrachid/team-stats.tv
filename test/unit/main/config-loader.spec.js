@@ -15,22 +15,22 @@ describe('unit -> main -> config-loader', () => {
 
   describe('from file system', () => {
 
-    it('Should resolve with null file', done => {
-      td.when(filePicker.json()).thenReturn(null);
+    it('Should reject with file selection error', done => {
+      td.when(filePicker.json()).thenReject(new Error('Failed'));
 
       configLoader
         .fromFileSystem()
-        .then(file => {
-          expect(file).to.equal(null);
+        .then(() => new Error('Should have failed'))
+        .catch(error => {
+          expect(error.message).to.equal('Failed');
           done();
-        })
-        .catch(done);
+        });
 
     });
 
     it('Should resolve with selected filePath', done => {
       const somePath = '/path/file';
-      td.when(filePicker.json()).thenReturn(somePath);
+      td.when(filePicker.json()).thenResolve(somePath);
       td.when(tileConfig.fromFile(somePath)).thenResolve('Resolved file');
 
       configLoader

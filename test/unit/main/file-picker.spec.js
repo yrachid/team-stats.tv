@@ -11,31 +11,28 @@ describe('unit -> main -> file-picker', () => {
     expect(picker.json).to.be.a('function');
   });
 
-  it('Should call Electron dialog with correct parameters', () => {
-
-    picker.json();
-
-    expect(dialog.showOpenDialog).to.have.been.calledWith({
-      properties: ['openFile'],
-      filters: [ { name: 'Configuration', extensions: ['json'] } ]
-    });
-
-  });
-
-  it('Should return the select file path', () => {
+  it('Should return the select file path', done => {
     td.when(dialog.showOpenDialog(td.matchers.isA(Object))).thenReturn(['some/path']);
 
-    const selectedFile = picker.json();
+    picker.json()
+    .then(file => {
+      expect(file).to.equal('some/path');
+      done();
+    })
+    .catch(done);
 
-    expect(selectedFile).to.equal('some/path');
   });
 
-  it('Should return null when picker brings no file', () => {
+  it('Should return null when picker brings no file', done => {
     td.when(dialog.showOpenDialog(td.matchers.isA(Object))).thenReturn(null);
 
-    const selectedFile = picker.json();
+    picker.json()
+    .then(() => done(new Error('Should have failed')))
+    .catch(error => {
+      expect(error.message).to.equal('No file was selected');
+      done()
+    });
 
-    expect(selectedFile).to.equal(null);
   });
 
 });

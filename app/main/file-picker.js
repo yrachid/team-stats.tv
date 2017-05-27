@@ -8,11 +8,11 @@ const configuration = {
 }
 
 module.exports = {
-    json: () => {
+    json: () => new Promise((resolve, reject) => {
       const selectedFileList = dialog.showOpenDialog(configuration.json)
 
       return selectedFileList
-      ? selectedFileList[0]
-      : null
-    }
+      ? resolve(selectedFileList[0])
+      : reject(new Error('No file was selected'))
+    })
 }
