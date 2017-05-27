@@ -6,9 +6,14 @@
   "build": {
     "appId": "io.github.othman853.telestats"
   },
+  "nyc" : {
+    "include": ["app/**/*.js"],
+    "reporter": ["lcov", "text-summary"],
+    "all": true
+  },
   "scripts": {
     "test": "mocha --recursive --require test/config.js",
-    "test:ci": "nyc --reporter=lcov mocha --recursive --require test/config.js",
+    "test:ci": "nyc mocha --recursive --require test/config.js",
     "codeclimate:send": "codeclimate-test-reporter < coverage/lcov.info",
     "test:unit": "mocha --recursive --require test/config.js test/unit",
     "test:component": "mocha --recursive --require test/config.js test/component",
