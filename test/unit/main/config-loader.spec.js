@@ -8,6 +8,10 @@ describe('unit -> main -> config-loader', () => {
     './file-picker': filePicker
   });
 
+  afterEach(() => {
+    td.reset();
+  });
+
   it('Should have a fromFileSystem function', () => {
     expect(configLoader.fromFileSystem).to.exist;
     expect(configLoader.fromFileSystem).to.be.a('function');
@@ -16,13 +20,14 @@ describe('unit -> main -> config-loader', () => {
   describe('from file system', () => {
 
     it('Should reject with file selection error', done => {
-      td.when(filePicker.json()).thenReject(new Error('Failed'));
+      const thrownError = new Error('Failed');
+      td.when(filePicker.json()).thenReject(thrownError);
 
       configLoader
         .fromFileSystem()
-        .then(() => new Error('Should have failed'))
+        .then(() => done(new Error('Should have failed')))
         .catch(error => {
-          expect(error.message).to.equal('Failed');
+          expect(error).to.eql(thrownError);
           done();
         });
 

@@ -6,6 +6,11 @@ describe('unit -> main -> file-picker', () => {
     'electron': { dialog }
   });
 
+
+  afterEach(() => {
+    td.reset();
+  });
+
   it('Should have a json picker', () => {
     expect(picker.json).to.exist;
     expect(picker.json).to.be.a('function');

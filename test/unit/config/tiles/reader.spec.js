@@ -6,6 +6,11 @@ describe('unit -> config -> tiles -> reader', () => {
     'fs': fs
   });
 
+
+  afterEach(() => {
+    td.reset();
+  });
+
   it('should reject an invalid file', done => {
     const someFilePath = '/bla/bla/bla';
     const expectedError = new Error('Cant read this file');

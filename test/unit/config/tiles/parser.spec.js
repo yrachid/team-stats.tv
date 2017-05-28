@@ -8,6 +8,11 @@ describe('unit -> config -> tiles -> parser', () => {
     '../../utils': utils
   });
 
+
+  afterEach(() => {
+    td.reset();
+  });
+
   it('Should resolve with a correctly parsed json file', done => {
     const data = 'whatever';
     const correctJson = { whatever: true };
