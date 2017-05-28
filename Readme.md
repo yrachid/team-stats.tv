@@ -3,6 +3,8 @@
 A TV Monitor for (distributed) software development teams.
 
 [![CircleCI](https://circleci.com/gh/othman853/team-stats.tv.svg?style=svg)](https://circleci.com/gh/othman853/team-stats.tv)
+[![Code Climate](https://codeclimate.com/github/othman853/team-stats.tv/badges/gpa.svg)](https://codeclimate.com/github/othman853/team-stats.tv)
+[![Test Coverage](https://codeclimate.com/github/othman853/team-stats.tv/badges/coverage.svg)](https://codeclimate.com/github/othman853/team-stats.tv/coverage)
 
 # Tech Stack:
 
