@@ -14,7 +14,7 @@ describe('unit -> index ', () => {
       './start': start
     });
 
-    expect(start).to.have.been.calledWith(undefined, electron.app, 'root/path');
+    expect(start).to.have.been.calledWith(null, electron.app, 'root/path');
 
   });
 

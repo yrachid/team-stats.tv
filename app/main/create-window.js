@@ -1,7 +1,7 @@
 const queryString = require('query-string')
 const {BrowserWindow, Menu} = require('electron')
 const configLoader = require('./config-loader')
-const menu = require('./menu')
+const createMenus = require('./menu')
 
 const windowConfiguration = {
     fullscreen: true,
@@ -10,10 +10,12 @@ const windowConfiguration = {
     }
 }
 
-module.exports = (window, menu, urls) => () => {
+module.exports = (window, app, urls) => () => {
 
+  if (window === null) {
     window = new BrowserWindow(windowConfiguration)
-    console.log('App.Main.CreateWindow: BrowserWindow Created')
+
+    const menu = createMenus(window, app)
 
     Menu.setApplicationMenu(menu)
 
@@ -27,8 +29,6 @@ module.exports = (window, menu, urls) => () => {
             return window.loadURL(urls.default)
         }
 
-        console.log('Loaded Tile Config')
-
         window.loadURL(urls.index)
 
         window.webContents.on('did-finish-load', () => {
@@ -37,8 +37,8 @@ module.exports = (window, menu, urls) => () => {
 
     })
     .catch(error => {
-        console.log('Failed to load Tile Config')
         window.loadURL(`${urls.error}?${queryString.stringify({ message: error.message })}`)
     })
+  }
 
 }
