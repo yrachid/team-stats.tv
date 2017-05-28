@@ -1,4 +1,5 @@
 module.exports = {
     object: Object,
-    json: JSON
+    json: JSON,
+    process: process
 }
