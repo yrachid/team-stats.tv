@@ -6,7 +6,7 @@ describe.skip('functional', function() {
   beforeEach(function() {
     this.app = new Application({
       path: path.join(process.cwd(), 'node_modules', '.bin', 'electron'),
-      args: [path.resolve('app/main/index.js')]
+      args: [path.resolve('app/index.js')]
     });
 
     return this.app.start();
