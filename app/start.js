@@ -1,6 +1,6 @@
 const createWindow = require('./main/create-window')
 const createUrls = require('./config/urls')
-const utils = require('./utils');
+const utils = require('./utils')
 
 module.exports = (window, app, basePath) => {
 
@@ -11,9 +11,9 @@ module.exports = (window, app, basePath) => {
   app.on('activate', startWindow)
 
   app.on('window-all-closed', () => {
-      if (utils.process.platform !== 'darwin') {
-          app.quit()
-      }
+    if (utils.process.platform !== 'darwin') {
+      app.quit()
+    }
   })
 
 }

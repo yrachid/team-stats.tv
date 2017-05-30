@@ -7,22 +7,22 @@ const tiles = document.getElementById('tiles')
 
 ipc.on('new-config', (event, data) => {
 
-    document.title = data.title
+  document.title = data.title
 
-    data
+  data
     .tiles
     .map(
       tileData => ({ tile: tileCreator(document, tileData), data: tileData })
     )
     .map(tileData => ({
-        tile: tileData.tile,
-        tileControls: tileControlsCreator(document, tileData.data, tileData.tile)
+      tile: tileData.tile,
+      tileControls: tileControlsCreator(document, tileData.data, tileData.tile)
     })
     )
     .forEach(tileData => {
-        tiles.appendChild(tileData.tile)
-        tiles.appendChild(tileData.tileControls)
+      tiles.appendChild(tileData.tile)
+      tiles.appendChild(tileData.tileControls)
     })
 
-    optimize()
+  optimize()
 })

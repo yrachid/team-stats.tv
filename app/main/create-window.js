@@ -4,10 +4,10 @@ const configLoader = require('./config-loader')
 const createMenus = require('./menu')
 
 const windowConfiguration = {
-    fullscreen: true,
-    webPreferences: {
-        experimentalFeatures: true,
-    }
+  fullscreen: true,
+  webPreferences: {
+    experimentalFeatures: true,
+  }
 }
 
 module.exports = (window, app, urls) => () => {
@@ -25,19 +25,19 @@ module.exports = (window, app, urls) => () => {
     .fromFileSystem()
     .then(config => {
 
-        if (!config) {
-            return window.loadURL(urls.default)
-        }
+      if (!config) {
+        return window.loadURL(urls.default)
+      }
 
-        window.loadURL(urls.index)
+      window.loadURL(urls.index)
 
-        window.webContents.on('did-finish-load', () => {
-            window.webContents.send('new-config', config)
-        })
+      window.webContents.on('did-finish-load', () => {
+        window.webContents.send('new-config', config)
+      })
 
     })
     .catch(error => {
-        window.loadURL(`${urls.error}?${queryString.stringify({ message: error.message })}`)
+      window.loadURL(`${urls.error}?${queryString.stringify({ message: error.message })}`)
     })
   }
 

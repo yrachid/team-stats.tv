@@ -11,7 +11,7 @@ const validate = validator(new Ajv(), schema)
 
 module.exports = {
 
-    fromFile: configFilePath =>
+  fromFile: configFilePath =>
       read(configFilePath)
       .then(parse)
       .then(validate)

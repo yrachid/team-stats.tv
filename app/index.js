@@ -1,5 +1,5 @@
-const path = require('path');
-const start = require('./start');
+const path = require('path')
+const start = require('./start')
 const { app } = require('electron')
 
 let window = null
