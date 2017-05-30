@@ -4,6 +4,25 @@ const chai = require('chai')
 const proxyquire = require('proxyquire')
 const path = require('path')
 
+class PromiseMock {
+
+  constructor() {
+    this.capturedThenCallback = null
+    this.capturedCatchCallback = null
+  }
+
+  then(callback) {
+    this.capturedThenCallback = callback
+    return { catch: this._catch.bind(this) }
+  }
+
+  _catch(callback) {
+    this.capturedCatchCallback = callback
+  }
+
+}
+
+
 chai.use(tdChai(td))
 
 const basePath = path.resolve()
@@ -15,3 +34,4 @@ global.path = path
 global.resolve = path.resolve
 global.resourcePath = partialPath => path.join(path.resolve(), 'test', '_resources', partialPath)
 global.solve = (file, stubs = {}) => proxyquire(path.join(basePath, file), stubs)
+global.PromiseMock = PromiseMock
