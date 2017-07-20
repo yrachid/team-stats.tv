@@ -32,10 +32,20 @@ A TV Monitor for (distributed) software development teams.
 
 - `npm install`
 
-
 To generate a `.dmg` file:
 
+Install the global `electron-builder` package first:
+
+`npm install -g electron-builder`
+
+This package is going to create a symlink into `/usr/local/bin/build`, so be aware of that.
+
+Having the previously mentioned package installed and assuming you're using a computer with
+through OS X, run:
+
 - `npm run dist`
+
+The generation of an executable for Linux or Windows is still an ongoing thing. coming soon. :)
 
 To run the tests:
 - `npm test`
