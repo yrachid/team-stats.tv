@@ -18,14 +18,20 @@ describe('unit -> main -> menu -> items -> reconfig', () => {
     expect(item.click).to.be.a('function')
   })
 
-  it.skip('Should do nothing', () => {
+  it('Should pick a config and emit new-config event', () => {
     const configuration = { someConfig: 'bla' }
-    const window = {}
+    const window = { webContents: { send: td.function() } }
     const aPromise = new PromiseMock()
-    const item = reconfig(window)
-    when(configLoader.fromFileSystem()).thenReturn(aPromise)
+    const aConfig = { config: true }
+    td.when(configLoader.fromFileSystem()).thenReturn(aPromise)
 
-    reconfig.click()
+    reconfig(window, null).click()
+
+    expect(aPromise.capturedThenCallback).to.be.a('function')
+
+    aPromise.capturedThenCallback(aConfig)
+
+    td.verify(window.webContents.send('new-config', aConfig))
   })
 
 })

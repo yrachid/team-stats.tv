@@ -5,9 +5,17 @@ const ipc = require('electron').ipcRenderer
 
 const tiles = document.getElementById('tiles')
 
+const cleanTiles = tiles => {
+  while(tiles.firstChild) {
+    tiles.removeChild(tiles.firstChild)
+  }
+}
+
 ipc.on('new-config', (event, data) => {
 
   document.title = data.title
+
+  cleanTiles(tiles)
 
   data
     .tiles

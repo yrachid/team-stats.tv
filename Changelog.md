@@ -4,6 +4,10 @@ http://keepachangelog.com/en/0.3.0/
 
 http://semver.org/
 
+## [0.1.2] - 2017-07-20
+### Added
+- Menu item to load a new configuration (Reconfigure)
+
 ## [0.1.1] - 2017-05-26
 ### Added
 - Istanbul test reporter
