@@ -32,7 +32,7 @@ A TV Monitor for (distributed) software development teams.
 
 - `npm install`
 
-To generate a `.dmg` file:
+# To generate a `.dmg` file:
 
 Install the global `electron-builder` package first:
 
