@@ -4,6 +4,11 @@ http://keepachangelog.com/en/0.3.0/
 
 http://semver.org/
 
+## [0.1.3] - 2017-08-08
+### Added
+- Menu item to clear cache of all tiles
+- Menu item to open dev tools
+
 ## [0.1.2] - 2017-07-20
 ### Added
 - Menu item to load a new configuration (Reconfigure)
