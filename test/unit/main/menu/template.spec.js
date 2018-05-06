@@ -1,10 +1,11 @@
 describe('unit -> main -> menu -> template', () => {
-
   const reload = td.function()
   const reconfig = td.function()
   const quit = td.function()
   const clearCache = td.function()
   const toggleDevTools = td.function()
+  const copy = td.function()
+  const paste = td.function()
 
   const templateBuilder = solve('app/main/menu/template', {
     './items/reload': reload,
@@ -18,7 +19,7 @@ describe('unit -> main -> menu -> template', () => {
     expect(templateBuilder).to.be.a('function')
   })
 
-  it('should return the expected template structure', () => {
+  it('should return the expected Window menu structure', () => {
     const app = { whatever: 'app' }
     const window = { whatever: 'window' }
     const reloadMenuItem = { item: 'reload' }
@@ -37,7 +38,7 @@ describe('unit -> main -> menu -> template', () => {
     const template = templateBuilder(window, app)
 
     expect(template).to.be.an('array')
-    expect(template.length).to.equal(1)
+    expect(template.length).to.equal(2)
     expect(template[0].label).to.equal('Window')
 
     expect(template[0].submenu.length).to.equal(6)
@@ -49,4 +50,30 @@ describe('unit -> main -> menu -> template', () => {
     expect(template[0].submenu[5]).to.eql(quitMenuItem)
   })
 
+  it('should return the expected Window menu structure', () => {
+    const app = { whatever: 'app' }
+    const edit = { whatever: 'edit' }
+
+    const copyMenuItem = {
+      label: 'Copy',
+      accelerator: 'CmdOrCtrl+C',
+      selector: 'copy:'
+    }
+
+    const pasteMenuItem = {
+      label: 'Paste',
+      accelerator: 'CmdOrCtrl+V',
+      selector: 'paste:'
+    }
+
+    const template = templateBuilder(edit, app)
+
+    expect(template).to.be.an('array')
+    expect(template.length).to.equal(2)
+    expect(template[1].label).to.equal('Edit')
+
+    expect(template[1].submenu.length).to.equal(2)
+    expect(template[1].submenu[0]).to.eql(copyMenuItem)
+    expect(template[1].submenu[1]).to.eql(pasteMenuItem)
+  })
 })
