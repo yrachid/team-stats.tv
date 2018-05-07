@@ -1,10 +1,10 @@
 const reload = require('./items/reload')
 const quit = require('./items/quit')
 const reconfig = require('./items/reconfig')
-const clearCache= require('./items/clear-cache')
-const toggleDevTools= require('./items/toggle-dev-tools')
+const clearCache = require('./items/clear-cache')
+const toggleDevTools = require('./items/toggle-dev-tools')
 
-module.exports = (window, app) => ([
+module.exports = (window, app) => [
   {
     label: 'Window',
     submenu: [
@@ -15,5 +15,12 @@ module.exports = (window, app) => ([
       { type: 'separator' },
       quit(window, app)
     ]
+  },
+  {
+    label: 'Edit',
+    submenu: [
+      { label: 'Copy', accelerator: 'CmdOrCtrl+C', selector: 'copy:' },
+      { label: 'Paste', accelerator: 'CmdOrCtrl+V', selector: 'paste:' }
+    ]
   }
-])
+]
